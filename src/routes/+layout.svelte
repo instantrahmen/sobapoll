@@ -28,3 +28,9 @@
     </div>
   </footer>
 </div>
+
+<style lang="postcss">
+  footer {
+
+  }
+</style>
