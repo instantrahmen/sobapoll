@@ -34,3 +34,16 @@ export type PollOption<ShowVotes extends boolean> = {
   description?: string;
   icon?: ValidIcon;
 };
+
+// export type PollOptionNoVotes = _PollOption<false> & {
+//   votes: never;
+// };
+
+export type PollWithPercentage = PollOption<true> & {
+  percentage: number;
+};
+
+// export type PollOption = PollOptionNoVotes | PollWithPercentage;
+// // export type PollWithPercentage = PollOption<true> & {
+// //   percentage: number;
+// // };

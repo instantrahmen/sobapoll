@@ -7,6 +7,8 @@
   import PollFPTP from '$lib/components/poll-types/PollFPTP.svelte';
   import PollRanked from '$lib/components/poll-types/PollRanked.svelte';
   import { type Poll, PollType } from '$lib/types/polls';
+  import { backgroundStore } from '$lib/state/background.svelte';
+  import { afterNavigate } from '$app/navigation';
 
   let { pollId } = $page.params;
 
@@ -15,8 +17,9 @@
     id: pollId,
     title: 'Favorite Noodle Dish',
     description: "What's your favorite japanese noodle dish?",
-    image: 'https://placewaifu.com/image/1920/1080',
-    imageDark: 'https://placewaifu.com/image/1280/720',
+    image: 'https://ch-admin.nyc3.digitaloceanspaces.com/Item%20Images/etc/wp10876289.jpg',
+    imageDark:
+      'https://ch-admin.nyc3.digitaloceanspaces.com/Item%20Images/etc/wp13840086-pink-sailor-moon-desktop-wallpapers.jpg',
     icon: SoupIcon,
     showVotes: true,
     options: [
@@ -88,12 +91,28 @@
         title: 'Soba',
         votes: 10,
         description: 'Buckwheat noodles with a nutty flavor',
-      },  
+      },
     ],
     selected: [],
   });
 
   let bgImage = $derived(cssVariable('--page-background'));
+
+  const bg = backgroundStore();
+
+  $effect(() => {
+    // set background
+    console.log('set background', $mode, examplePoll.imageDark, examplePoll.image);
+    if ($mode === 'dark') {
+      bg.state.value = `url(${examplePoll.imageDark})`;
+    } else {
+      bg.state.value = `url(${examplePoll.image})`;
+    }
+  });
+
+  afterNavigate(() => {
+    console.log('after navigate');
+  });
 </script>
 
 <svelte:head>

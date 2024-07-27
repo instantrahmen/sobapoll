@@ -81,8 +81,8 @@
       icon: TrendingUpIcon,
       type: PollType.FPTP,
       showVotes: true,
-      imageDark: 'https://picsum.photos/id/69/800/600',
-      image: 'https://picsum.photos/id/69/800/600',
+      imageDark: '"https://placewaifu.com/image/800/600"',
+      image: 'https://placewaifu.com/image/800/600',
       options: [
         {
           id: '1',
@@ -114,8 +114,10 @@
       icon: DrumstickIcon,
       type: PollType.FPTP,
       showVotes: true,
-      imageDark: 'https://picsum.photos/id/69/800/600',
-      image: 'https://picsum.photos/id/69/800/600',
+      imageDark:
+        'https://cdn.magicdecor.in/com/2023/10/20172003/Anime-Girl-and-Mystical-Creature-Wallpaper-for-Wall-710x488.jpg',
+      image:
+        'https://cdn.magicdecor.in/com/2023/10/20172003/Anime-Girl-and-Mystical-Creature-Wallpaper-for-Wall-710x488.jpg',
       options: [
         {
           id: '1',
@@ -143,161 +145,99 @@
   ]);
 </script>
 
-<section class=" py-12 md:py-20">
-  <div class="container grid items-center gap-8 px-4 md:grid-cols-2 md:px-6">
-    <!-- class="space-y-4 rounded-xl " -->
-    <Card.Root class="text-center flex flex-col"
-      style={`
-        aspect-ratio: 800/600;
-        object-fit: cover;
-      `}
-      
-    >
-      <div class="flex justify-center flex-1 text-4xl"><SoupIcon></SoupIcon></div>
-      <Card.Header class="text-4xl font-bold tracking-tight md:text-5xl  w-full">
-        Welcome to SobaPoll
-      </Card.Header>
-      <Card.Content class="max-w-md text-xl w-full mx-auto">
+<section class="flex min-h-[calc(100dvh-200px)] flex-col items-center justify-center">
+  <div class="container grid items-center gap-8 px-4 text-left md:grid-cols-1 md:px-6">
+    <div class=" flex flex-col space-y-4 rounded-xl p-8 text-center">
+      <h2 class="md:text-8px w-full text-6xl font-normal tracking-wide">Welcome to SobaPoll</h2>
+      <div class=" mx-auto w-full max-w-md py-8 text-xl">
         Discover and participate in polls on a variety of polls, or create your own. Choose between
         multiple voting methods, visibility options, and more.
-      </Card.Content>
-      <Card.Footer class="flex gap-4 w-full mx-auto justify-center">
-        <Button variant="outline" size="lg" class="bg-secondary">Explore Polls</Button>
-        <Button variant="outline" size="lg">Create Poll</Button>
-      </Card.Footer>
-    </Card.Root>
-    <img
-      alt="Noodle Bowl"
-      class="rounded-xl object-cover"
-      height={600}
-      width={800}
-      src="https://placewaifu.com/image/800/600"
-      style={`
-        aspect-ratio: 800/600;
-        object-fit: cover;
-      `}
-    />
-  </div>
-</section>
-<main class="container grid gap-12 px-4 py-12 md:grid-cols-[1fr_300px] md:px-6 md:py-20">
-  <div class="space-y-8">
-    <div class="grid grid-cols-fluid-250 gap-6">
-      {#each featuredPolls as poll}
-        <PollFptp
-          {poll} />
-      {/each}
+      </div>
+      <div class="mx-auto flex w-full justify-center gap-4">
+        <div>
+          <Button variant="glass-primary" size="lg" class="">Create Poll</Button>
+          <span class="block text-center text-xs font-light text-muted">No account needed</span>
+        </div>
+        <Button variant="glass" size="lg" class="">Sign up</Button>
+      </div>
     </div>
   </div>
-  <div class="space-y-6">
-    <Card.Root class="rounded-xl ">
-      <Card.Header class="text-lg font-semibold">Categories</Card.Header>
-      <Card.Content class="max-w-md">
-        <nav class="mt-4 grid gap-2">
-          <a
-            class="flex items-center gap-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-            href="/"
-          >
-            <SoupIcon class="h-4 w-4" />
-            Noodle Dishes
-          </a>
-          <a
-            class="flex items-center gap-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-            href="/"
-          >
-            <DrumstickIcon class="h-4 w-4" />
-            Noodle Toppings
-          </a>
-          <a
-            class="flex items-center gap-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-            href="/"
-          >
-            <SoupIcon class="h-4 w-4" />
-            Noodle Textures
-          </a>
-          <a
-            class="flex items-center gap-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-            href="/"
-          >
-            <SoupIcon class="h-4 w-4" />
-            Noodle Broths
-          </a>
-          <a
-            class="flex items-center gap-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-            href="/"
-          >
-            <TrendingUpIcon class="h-4 w-4" />
-            Popular Polls
-          </a>
-          <a
-            class="flex items-center gap-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-            href="/"
-          >
-            <PlusIcon class="h-4 w-4" />
-            Create Poll
-          </a>
-        </nav>
-      </Card.Content>
-    </Card.Root>
-    <Card.Root class="rounded-xl ">
-      <Card.Header class="text-lg font-semibold">Top Creators</Card.Header>
-      <Card.Content class="max-w-md">
-        <div class="mt-4 space-y-2">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <Avatar>
-                <AvatarImage alt="Avatar 1" />
-                <AvatarFallback>JD</AvatarFallback>
-              </Avatar>
-              <div>
-                <p class="font-medium">John Doe</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400">1,234 Votes</p>
+</section>
+
+<main class="container grid gap-12 px-4 py-12 md:grid-cols-[1fr] md:px-6 md:py-20">
+  <section id="featured">
+    <h3 class="mb-4 text-center text-4xl font-semibold tracking-wide">Featured Polls</h3>
+
+    <div class="space-y-8">
+      <div class="grid grid-cols-fluid-300 gap-6">
+        {#each featuredPolls as poll}
+          <PollFptp {poll} />
+        {/each}
+      </div>
+    </div>
+
+    <div class="space-y-6">
+      <Card.Root class="rounded-xl ">
+        <Card.Header class="text-lg font-semibold">Top Creators</Card.Header>
+        <Card.Content class="max-w-md">
+          <div class="mt-4 space-y-2">
+            <div class="flex items-center justify-between text-left">
+              <div class="flex items-center justify-start gap-2 text-left">
+                <Avatar>
+                  <AvatarImage alt="Avatar 1" />
+                  <AvatarFallback>JD</AvatarFallback>
+                </Avatar>
+                <div>
+                  <p class="font-medium">John Doe</p>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">1,234 Votes</p>
+                </div>
               </div>
+              <Badge
+                class="bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-50"
+                variant="outline"
+              >
+                1
+              </Badge>
             </div>
-            <Badge
-              class="bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-50"
-              variant="outline"
-            >
-              1
-            </Badge>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <Avatar>
-                <AvatarImage alt="Avatar 2" />
-                <AvatarFallback>JA</AvatarFallback>
-              </Avatar>
-              <div>
-                <p class="font-medium">Jane Appleseed</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400">987 Votes</p>
+            <div class="flex items-center justify-between text-left">
+              <div class="flex items-center justify-start gap-2 text-left">
+                <Avatar>
+                  <AvatarImage alt="Avatar 2" />
+                  <AvatarFallback>JA</AvatarFallback>
+                </Avatar>
+                <div>
+                  <p class="font-medium">Jane Appleseed</p>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">987 Votes</p>
+                </div>
               </div>
+              <Badge
+                class="bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-50"
+                variant="outline"
+              >
+                2
+              </Badge>
             </div>
-            <Badge
-              class="bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-50"
-              variant="outline"
-            >
-              2
-            </Badge>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <Avatar>
-                <AvatarImage alt="Avatar 3" />
-                <AvatarFallback>SM</AvatarFallback>
-              </Avatar>
-              <div>
-                <p class="font-medium">Sarah Mayer</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400">789 Votes</p>
+            <div class="flex items-center justify-between text-left">
+              <div class="flex items-center justify-start gap-2 text-left">
+                <Avatar>
+                  <AvatarImage alt="Avatar 3" />
+                  <AvatarFallback>SM</AvatarFallback>
+                </Avatar>
+                <div>
+                  <p class="font-medium">Sarah Mayer</p>
+                  <p class="text-sm text-gray-500 dark:text-gray-400">789 Votes</p>
+                </div>
               </div>
+              <Badge
+                class="bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-50"
+                variant="outline"
+              >
+                3
+              </Badge>
             </div>
-            <Badge
-              class="bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-50"
-              variant="outline"
-            >
-              3
-            </Badge>
           </div>
-        </div>
-      </Card.Content>
-    </Card.Root>
-  </div>
+        </Card.Content>
+      </Card.Root>
+    </div>
+  </section>
 </main>

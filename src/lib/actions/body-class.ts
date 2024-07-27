@@ -1,3 +1,6 @@
+import { getCSSVar } from '$lib/state/background.svelte';
+import { setContext } from 'svelte';
+
 export const bodyClass = (className: string) => {
   return function (node: HTMLElement, toggled: boolean) {
     node.classList.toggle(className, toggled);

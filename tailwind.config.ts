@@ -57,7 +57,27 @@ const config: Config = {
         },
         glass: {
           DEFAULT: 'var(--card-bg-trans)',
+          lighter: 'color-mix(in lch, var(--card-bg-trans) 80%, var(--page-background))',
+          darker: 'color-mix(in lch, var(--card-bg-trans) 90%, #300033)',
           opaque: 'var(--card-bg)',
+          white: 'hsl(0 0% 100% / <alpha-value>)',
+          black: 'hsl(0 0% 0% / <alpha-value>)',
+          primary: {
+            DEFAULT: 'var(--glass-primary-trans)',
+            darker: 'color-mix(in lch, var(--glass-primary-trans) 80%, #300033)',
+            lighter: 'color-mix(in lch, var(--glass-primary-trans) 90%, #ffffff)',
+          },
+          secondary: {
+            DEFAULT: 'var(--glass-secondary-trans)',
+            darker: 'color-mix(in lch, var(--glass-secondary-trans) 80%, #300033)',
+            lighter: 'color-mix(in lch, var(--glass-secondary-trans) 90%, #ffffff)',
+          },
+          accent: 'var(--glass-accent-trans)',
+          destructive: 'var(--glass-destructive-trans)',
+        },
+        average: {
+          DEFAULT: 'var(--bg-average)',
+          lighter: 'color-mix(in lch, var(--bg-average) 10%, var(--page-background))',
         },
       },
       borderRadius: {

@@ -26,10 +26,22 @@
       --ring: 200 90% 40%;
       --radius: 0.5rem;
 
-      --bg-average: color-mix(in oklab, hsl(var(--primary)), hsl(var(--secondary)));
+      --bg-average-default: color-mix(in oklab, hsl(var(--primary)), hsl(var(--secondary)));
+
+      --bg-average: var(--bg-average-default);
       --card-bg: color-mix(in oklab, var(--bg-average), hsl(var(--card)));
+      --glass-primary: color-mix(in oklab, var(--bg-average), hsl(var(--primary)));
+      --glass-secondary: color-mix(in oklab, var(--bg-average), hsl(var(--secondary)));
+      --glass-accent: color-mix(in oklab, var(--bg-average), hsl(var(--accent)));
+      --glass-destructive: color-mix(in oklab, var(--bg-average), hsl(var(--destructive)));
 
       --card-bg-trans: color-mix(in oklab, var(--card-bg), transparent 60%);
+      --glass-primary-trans: color-mix(in oklab, var(--glass-primary), transparent 60%);
+      --glass-secondary-trans: color-mix(in oklab, var(--glass-secondary), transparent 60%);
+      --glass-accent-trans: color-mix(in oklab, var(--glass-accent), transparent 60%);
+      --glass-destructive-trans: color-mix(in oklab, var(--glass-destructive), transparent 60%);
+
+      --card-bg-trans-performant: color-mix(in oklab, var(--card-bg), transparent 10%);
 
       --test-image: url('https://images8.alphacoders.com/134/thumb-1920-1345127.jpeg');
       --bg-grad: linear-gradient(
@@ -93,7 +105,34 @@
 
 @layer components {
   .card {
-    @apply rounded-lg border-card-foreground/50 text-card-foreground shadow-sm backdrop-blur-3xl;
-    background: var(--card-bg-trans);
+    @apply rounded-lg border-white/15 bg-glass text-card-foreground shadow-md backdrop-blur-lg;
+  }
+
+  .glass {
+    @apply rounded-lg border-white/15 bg-glass text-card-foreground backdrop-blur-lg;
+
+    &-primary {
+      @apply bg-glass-primary;
+    }
+
+    &-secondary {
+      @apply bg-glass-secondary;
+    }
+
+    &-accent {
+      @apply bg-glass-accent;
+    }
+
+    &-destructive {
+      @apply bg-glass-destructive;
+    }
+  }
+
+  .card-performant {
+    @apply card backdrop-blur-none;
+    background: var(--card-bg-trans-performant);
+  }
+  .card-opaque {
+    @apply card bg-glass-opaque backdrop-blur-none;
   }
 }
