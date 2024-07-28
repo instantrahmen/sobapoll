@@ -1,10 +1,11 @@
 <script lang="ts">
   import '../app.pcss';
-  import { SoupIcon } from 'lucide-svelte';
-  import Header from '$lib/components/Header.svelte';
+  import { Moon, SoupIcon, Sun } from 'lucide-svelte';
+  import Header from '$lib/components/Header/Header.svelte';
   import { ModeWatcher, mode } from 'mode-watcher';
   import { backgroundStore, getCSSVar, setCSSVar } from '$lib/state/background.svelte';
-  import { onMount, setContext } from 'svelte';
+  import * as Avatar from '$lib/components/ui/avatar';
+  import { toggleMode } from 'mode-watcher';
   import { afterNavigate, beforeNavigate, onNavigate } from '$app/navigation';
   import { getAverageImageColor } from '$lib/utils';
   import { averageColorDefault, themeStore } from '$lib/state/theme.svelte';
@@ -55,6 +56,10 @@
   afterNavigate(() => {
     setBgColor(bgState.state.value);
   });
+
+  let loggedIn = $state(false);
+
+  const tempAvatarImage = 'https://i.pravatar.cc/300';
 </script>
 
 <!-- Handlesd switching between light and dark mode -->
@@ -62,7 +67,30 @@
 <Toaster />
 
 <div class="flex min-h-dvh flex-col">
-  <Header />
+  <Header>
+    {#snippet children({ Link })}
+      <Button on:click={toggleMode} variant="ghost" size="icon">
+        <Sun
+          class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+        />
+        <Moon
+          class="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
+        />
+        <span class="sr-only">Toggle theme</span>
+      </Button>
+      <a class="hover:underline" href="/"> Home </a>
+      <a class="hover:underline" href="/polls/{crypto.randomUUID()}"> Polls </a>
+      <Button variant="glass-primary" class="hover:shadow-lg" href="/">Create Poll</Button>
+      {#if loggedIn}
+        <!-- Avatar dropdown -->
+
+      {:else}
+        <Button variant="glass-neutral" class="hover:shadow-lg" on:click={() => (loggedIn = true)}
+          >Login</Button
+        >
+      {/if}
+    {/snippet}
+  </Header>
 
   <div class="flex-1">
     {@render children()}

@@ -19,6 +19,16 @@ export const dedupItems = <T extends ItemWithId>(input: T[]): T[] => {
   }, [] as T[]);
 };
 
+export const repeat = (numberOfRepeats: number, fn: (i: number) => void) => {
+  for (let i = 0; i < numberOfRepeats; i++) {
+    fn(i);
+  }
+};
 
+export const wait = (ms: number): Promise<void> => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+};
 
-export * from './color-utils.svelte'
+export * from './color-utils.svelte';

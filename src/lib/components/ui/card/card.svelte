@@ -21,6 +21,6 @@
   });
 </script>
 
-<div class={cn(' border', performant ? performantClasses : 'card', className)} {...restProps}>
+<div class={cn('border', performant ? performantClasses : 'card', className)} {...restProps}>
   {@render children()}
 </div>
