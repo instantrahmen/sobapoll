@@ -52,7 +52,6 @@
       );
 
       --page-background: var(--bg-grad);
-      --page-background-dark: var(--bg-grad);
     }
 
     .dark {
@@ -87,16 +86,30 @@
   body {
     @apply bg-none text-foreground;
 
-    &:before {
-      /* HACK: Fixed background doesn't work on ios safari (wtf safari), so just using a fixed position pseudo element instead */
+    /* HACK Fixed backgrounds don't work on ios safari (wtf safari), so just using a fixed position pseudo element instead */
+    /* Double backgrounds, with one anchored to the top and the other to the bottom in order to prevent the white background from bleeding through on scroll */
+    &:after {
+      --vh-diff: calc(100lvh - 100svh);
       position: fixed;
-      bottom: 0;
+      bottom: calc(-1 * var(--vh-diff));
       content: '';
       width: 100%;
-      height: 100dvh;
-      z-index: -10;
-      background: var(--page-background);
-      background-attachment: fixed;
+      height: calc(100lvh);
+      z-index: -1;
+      background-image: var(--page-background);
+      background-size: cover;
+      background-position: center;
+    }
+
+    &:before {
+      --vh-diff: calc(100lvh - 100svh);
+      position: fixed;
+      top: calc(-1 * var(--vh-diff));
+      content: '';
+      width: 100%;
+      height: calc(100lvh);
+      z-index: -1;
+      background-image: var(--page-background);
       background-size: cover;
       background-position: center;
     }

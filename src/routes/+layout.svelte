@@ -1,17 +1,16 @@
 <script lang="ts">
   import '../app.pcss';
-  import { Moon, SoupIcon, Sun } from 'lucide-svelte';
-  import Header from '$lib/components/Header/Header.svelte';
+  import { SoupIcon } from 'lucide-svelte';
   import { ModeWatcher, mode } from 'mode-watcher';
-  import { backgroundStore, getCSSVar, setCSSVar } from '$lib/state/background.svelte';
-  import * as Avatar from '$lib/components/ui/avatar';
-  import { toggleMode } from 'mode-watcher';
-  import { afterNavigate, beforeNavigate, onNavigate } from '$app/navigation';
+  import { backgroundStore } from '$lib/state/background.svelte';
+  import { afterNavigate, beforeNavigate } from '$app/navigation';
   import { getAverageImageColor } from '$lib/utils';
   import { averageColorDefault, themeStore } from '$lib/state/theme.svelte';
+
   import { Button } from '$lib/components/ui/button';
   import chroma from 'chroma-js';
   import Toaster from '$lib/components/toast/Toaster.svelte';
+  import PageHeader from './PageHeader.svelte';
 
   const { children } = $props();
 
@@ -66,31 +65,8 @@
 <ModeWatcher />
 <Toaster />
 
-<div class="flex min-h-dvh flex-col">
-  <Header>
-    {#snippet children({ Link })}
-      <Button on:click={toggleMode} variant="ghost" size="icon">
-        <Sun
-          class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
-        />
-        <Moon
-          class="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
-        />
-        <span class="sr-only">Toggle theme</span>
-      </Button>
-      <a class="hover:underline" href="/"> Home </a>
-      <a class="hover:underline" href="/polls/{crypto.randomUUID()}"> Polls </a>
-      <Button variant="glass-primary" class="hover:shadow-lg" href="/">Create Poll</Button>
-      {#if loggedIn}
-        <!-- Avatar dropdown -->
-
-      {:else}
-        <Button variant="glass-neutral" class="hover:shadow-lg" on:click={() => (loggedIn = true)}
-          >Login</Button
-        >
-      {/if}
-    {/snippet}
-  </Header>
+<div class="flex min-h-lvh flex-col">
+  <PageHeader />
 
   <div class="flex-1">
     {@render children()}

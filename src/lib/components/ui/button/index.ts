@@ -15,7 +15,7 @@ const buttonVariants = tv({
         'border border-input bg-background hover:bg-accent hover:text-accent-foreground tracking-wider',
       secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80 tracking-wider',
       ghost: 'hover:bg-accent hover:text-accent-foreground tracking-wider',
-      link: 'text-primary underline-offset-4 hover:underline',
+      link: 'text-inherit p-0 underline-offset-4 hover:underline',
       glass: `${glassBaseClasses}`,
       'glass-primary': `${glassBaseClasses} bg-primary/40 hover:bg-primary/50`,
       'glass-secondary': `${glassBaseClasses} bg-secondary/40 hover:bg-secondary/50`,

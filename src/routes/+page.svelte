@@ -145,7 +145,7 @@
   ]);
 </script>
 
-<section class="flex min-h-[calc(100dvh-200px)] flex-col items-center justify-center">
+<section class="flex min-h-[calc(100lvh-200px)] flex-col items-center justify-center">
   <div class="container grid items-center gap-8 px-4 text-left md:grid-cols-1 md:px-6">
     <div class=" flex flex-col space-y-4 rounded-xl p-8 text-center">
       <h2 class="md:text-8px w-full text-6xl font-normal tracking-wide">Welcome to SobaPoll</h2>
