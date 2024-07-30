@@ -24,7 +24,7 @@
       --border: 210 100% 20%;
       --input: 210 100% 20%;
       --ring: 200 90% 40%;
-      --radius: 0.5rem;
+      --radius: 1rem;
 
       --bg-average-default: color-mix(in oklab, hsl(var(--primary)), hsl(var(--secondary)));
 
@@ -86,28 +86,15 @@
   body {
     @apply bg-none text-foreground;
 
-    /* HACK Fixed backgrounds don't work on ios safari (wtf safari), so just using a fixed position pseudo element instead */
-    /* Double backgrounds, with one anchored to the top and the other to the bottom in order to prevent the white background from bleeding through on scroll */
-    &:after {
+    /* HACK Fixed backgrounds don't work on ios safari (wtf safari), so I"m just using a fixed position pseudo element instead */
+    /* It's a bit hacky, but it works. The weird offset is to prevent the white background from bleeding through when scrolling on mobile browsers */
+    &:before {
       --vh-diff: calc(100lvh - 100svh);
       position: fixed;
       bottom: calc(-1 * var(--vh-diff));
       content: '';
       width: 100%;
-      height: calc(100lvh);
-      z-index: -1;
-      background-image: var(--page-background);
-      background-size: cover;
-      background-position: center;
-    }
-
-    &:before {
-      --vh-diff: calc(100lvh - 100svh);
-      position: fixed;
-      top: calc(-1 * var(--vh-diff));
-      content: '';
-      width: 100%;
-      height: calc(100lvh);
+      height: calc(100vh + var(--vh-diff));
       z-index: -1;
       background-image: var(--page-background);
       background-size: cover;

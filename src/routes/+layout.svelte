@@ -11,6 +11,7 @@
   import chroma from 'chroma-js';
   import Toaster from '$lib/components/toast/Toaster.svelte';
   import PageHeader from './PageHeader.svelte';
+  import PageFooter from './PageFooter.svelte';
 
   const { children } = $props();
 
@@ -72,30 +73,7 @@
     {@render children()}
   </div>
 
-  <footer class="card rounded-none border-t p-4">
-    <div class="container flex items-center justify-between px-0">
-      <div class="flex items-center gap-2">
-        <SoupIcon class="h-6 w-6" />
-        <p>© 2023 SobaPoll. All rights reserved.</p>
-      </div>
-
-      <input
-        type="color"
-        name="theme-color"
-        id="theme-color"
-        bind:value={theme.state.customColor}
-      />
-      <Button on:click={() => (theme.state.customColor = null)} variant="ghost" size="icon">
-        Reset
-      </Button>
-
-      <nav class="flex items-center gap-4">
-        <a class="hover:underline" href="/"> Privacy </a>
-        <a class="hover:underline" href="/"> Terms </a>
-        <a class="hover:underline" href="/"> Contact </a>
-      </nav>
-    </div>
-  </footer>
+  <PageFooter></PageFooter>
 </div>
 
 <!-- Preview colors for debugging -->

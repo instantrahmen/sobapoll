@@ -19,8 +19,10 @@
 
 <header
   class={cn(
-    `sticky top-0 z-20 flex items-center justify-between rounded-none p-4 transition-colors duration-100 ease-in`,
-    `card`
+    'card',
+    'sticky top-0 z-20 flex items-center justify-between rounded-none',
+    'mb-2 border-b p-2 px-4 transition-colors duration-100 ease-in',
+    'md:top-2 md:mx-2 md:rounded-md md:border'
   )}
 >
   <a class="flex items-center gap-2" href="/">

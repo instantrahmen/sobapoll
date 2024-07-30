@@ -158,7 +158,7 @@
           <Button variant="glass-primary" size="lg" class="">Create Poll</Button>
           <span class="block text-center text-xs font-light text-muted">No account needed</span>
         </div>
-        <Button variant="glass" size="lg" class="">Sign up</Button>
+        <Button href="/auth/login" variant="glass-neutral" size="lg">Login</Button>
       </div>
     </div>
   </div>

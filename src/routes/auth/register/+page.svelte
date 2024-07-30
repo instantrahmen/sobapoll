@@ -1,13 +1,12 @@
 <script lang="ts">
   import * as Form from '$lib/components/ui/form';
   import { Input } from '$lib/components/ui/input';
-  import { Checkbox } from '$lib/components/ui/checkbox';
   import { formSchema, type FormSchema } from './schema';
   import { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
   import * as Card from '$lib/components/ui/card';
-  import Icon from '@iconify/svelte';
 
   import { zodClient } from 'sveltekit-superforms/adapters';
+  import Icon from '@iconify/svelte';
 
   export let data: SuperValidated<Infer<FormSchema>>;
 
@@ -19,16 +18,16 @@
   const { form: formData, enhance } = form;
 </script>
 
-<Card.Root class="m-4 mx-auto max-w-fit">
+<Card.Root class="m-4 mx-auto max-w-lg">
   <Card.Header class="text-center text-2xl font-semibold">
-    <Card.Title class="text-center text-2xl font-semibold">Sign into your account</Card.Title>
+    <Card.Title class="text-center text-2xl font-semibold">Register for an account</Card.Title>
     <Card.Description class="text-center font-normal text-muted"
-      >Don't have an account? <a class="text-primary underline" href="/auth/register">Register</a
+      >Already have an account? <a class="text-primary underline" href="/auth/login">Sign in</a
       ></Card.Description
     >
   </Card.Header>
-  <Card.Content>
-    <form method="POST" class="flex flex-col gap-1" use:enhance>
+  <Card.Content class="">
+    <form method="POST" class="flex flex-col gap-2" use:enhance>
       <Form.Field {form} name="username">
         <Form.Control let:attrs>
           <Form.Label>Username</Form.Label>
@@ -37,40 +36,31 @@
         <Form.FieldErrors />
       </Form.Field>
 
-      <Form.Field {form} name="password">
+      <Form.Field {form} name="email">
         <Form.Control let:attrs>
-          <Form.Label>Password</Form.Label>
-          <Input {...attrs} type="password" bind:value={$formData.password} />
+          <Form.Label>Email</Form.Label>
+          <Input class=" " {...attrs} bind:value={$formData.email} />
         </Form.Control>
         <Form.FieldErrors />
       </Form.Field>
-      <div class="flex flex-row justify-between">
-        <Form.Field
-          {form}
-          name="rememberMe"
-          class="flex flex-row items-center space-x-2 align-middle"
-        >
-          <Form.Control let:attrs>
-            <Form.Label
-              id="remember-me-label"
-              for="remember-me"
-              class="m-0 block align-middle text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-            >
-              <Checkbox
-                {...attrs}
-                id="remember-me"
-                class=" mb-1 inline-block rounded-[0.4rem] align-middle"
-                aria-labelledby="remember-me-label"
-              />
-              Remember me
-            </Form.Label>
-          </Form.Control>
-        </Form.Field>
-        <a href="/auth/forgot" class="text-right text-primary underline">Forgot Password</a>
-      </div>
-      <Form.Button variant="glass-primary" class="my-2 w-full">Sign in</Form.Button>
 
-      <!-- or line -->
+      <Form.Field {form} name="password">
+        <Form.Control let:attrs>
+          <Form.Label>Password</Form.Label>
+          <Input class="" {...attrs} type="password" bind:value={$formData.password} />
+        </Form.Control>
+        <Form.FieldErrors />
+      </Form.Field>
+
+      <Form.Field {form} name="passwordConfirm">
+        <Form.Control let:attrs>
+          <Form.Label>Confirm Password</Form.Label>
+          <Input class="" {...attrs} type="password" bind:value={$formData.passwordConfirm} />
+        </Form.Control>
+        <Form.FieldErrors />
+      </Form.Field>
+      <Form.Button variant="glass-primary" class="w-full">Sign in</Form.Button>
+
       <div class="my-2 flex items-center justify-center">
         <div class="h-px w-20 bg-muted/50"></div>
         <span class="mx-3 text-center text-lg font-normal tracking-widest text-muted/50"

@@ -22,6 +22,10 @@ const buttonVariants = tv({
       'glass-accent': `${glassBaseClasses} bg-accent/40 hover:bg-accent/50`,
       'glass-destructive': `${glassBaseClasses} bg-destructive/40 hover:bg-destructive/50`,
       'glass-neutral': `${glassBaseClasses} bg-white/40 dark:bg-black/40 hover:bg-white/50 dark:hover:bg-black/50`,
+      google: 'bg-[#4285F4] hover:bg-[#4285F4]/90 text-primary-foreground tracking-wider',
+      discord: 'bg-[#5865F2] hover:bg-[#5865F2]/90 text-primary-foreground tracking-wider',
+      twitter: 'bg-[#1DA1F2] hover:bg-[#1DA1F2]/90 text-primary-foreground tracking-wider',
+      patreon: 'bg-[#F96854] hover:bg-[#F96854]/90 text-primary-foreground tracking-wider',
     },
     size: {
       default: 'h-10 px-4 py-2',
