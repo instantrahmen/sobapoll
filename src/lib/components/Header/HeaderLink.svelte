@@ -1,26 +1,30 @@
 <script lang="ts">
   import Button from '$lib/components/ui/button/button.svelte';
   import { cn } from '$lib/utils';
-  import type { ComponentType, Snippet, ComponentProps } from 'svelte';
-
+  import type { ComponentType, ComponentProps } from 'svelte';
+  import Icon from '$lib/components/Icon.svelte';
+  import type { ValidIcon } from '$lib/types/polls';
   // prop types from Button
   type Props = ComponentProps<Button> & {
-    icon?: string | ComponentType;
+    icon?: ValidIcon;
     iconOnly?: boolean;
   };
 
   const { icon, children, iconOnly, ...buttonProps }: Props = $props();
-
-  let link = $derived(buttonProps.variant === 'link');
 
   const linkClasses = `p-0`;
 </script>
 
 <Button class={cn(linkClasses, buttonProps.class)} {...buttonProps}>
   {#if icon}
-    <svelte:component this={icon} />
+    <!-- if icon is snippet -->
+    <Icon {icon}></Icon>
   {/if}
-  <span class:sr-only={iconOnly}>{@render children()}</span>
+  {#if children}
+    <span class:sr-only={iconOnly}>
+      {@render children()}
+    </span>
+  {/if}
 </Button>
 
 <style lang="postcss">

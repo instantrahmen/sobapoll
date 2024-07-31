@@ -2,102 +2,26 @@
   import * as Form from '$lib/components/ui/form';
   import { Input } from '$lib/components/ui/input';
   import { Checkbox } from '$lib/components/ui/checkbox';
-  import { formSchema, type FormSchema } from './schema';
-  import { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
+  import LoginForm, { formSchema, type FormSchema } from '$forms/login/LoginForm.svelte';
+  import { type SuperValidated, type Infer, superForm, type FormPath } from 'sveltekit-superforms';
   import * as Card from '$lib/components/ui/card';
   import Icon from '@iconify/svelte';
 
   import { zodClient } from 'sveltekit-superforms/adapters';
-
-  export let data: SuperValidated<Infer<FormSchema>>;
-
-  const form = superForm(data, {
-    validators: zodClient(formSchema),
-    dataType: 'json',
-  });
-
-  const { form: formData, enhance } = form;
+  import { toTitleCase } from '$lib/utils';
+  import type { HTMLInputTypeAttribute } from 'svelte/elements';
+  import { z } from 'zod';
+  const { data } = $props();
 </script>
 
 <Card.Root class="m-4 mx-auto max-w-fit">
   <Card.Header class="text-center text-2xl font-semibold">
     <Card.Title class="text-center text-2xl font-semibold">Sign into your account</Card.Title>
-    <Card.Description class="text-center font-normal text-muted"
-      >Don't have an account? <a class="text-primary underline" href="/auth/register">Register</a
-      ></Card.Description
-    >
+    <Card.Description class="text-center font-normal text-muted">
+      Don't have an account? <a class="text-primary underline" href="/auth/register">Sign up</a>
+    </Card.Description>
   </Card.Header>
   <Card.Content>
-    <form method="POST" class="flex flex-col gap-1" use:enhance>
-      <Form.Field {form} name="username">
-        <Form.Control let:attrs>
-          <Form.Label>Username</Form.Label>
-          <Input class=" " {...attrs} bind:value={$formData.username} />
-        </Form.Control>
-        <Form.FieldErrors />
-      </Form.Field>
-
-      <Form.Field {form} name="password">
-        <Form.Control let:attrs>
-          <Form.Label>Password</Form.Label>
-          <Input {...attrs} type="password" bind:value={$formData.password} />
-        </Form.Control>
-        <Form.FieldErrors />
-      </Form.Field>
-      <div class="flex flex-row justify-between">
-        <Form.Field
-          {form}
-          name="rememberMe"
-          class="flex flex-row items-center space-x-2 align-middle"
-        >
-          <Form.Control let:attrs>
-            <Form.Label
-              id="remember-me-label"
-              for="remember-me"
-              class="m-0 block align-middle text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-            >
-              <Checkbox
-                {...attrs}
-                id="remember-me"
-                class=" mb-1 inline-block rounded-[0.4rem] align-middle"
-                aria-labelledby="remember-me-label"
-              />
-              Remember me
-            </Form.Label>
-          </Form.Control>
-        </Form.Field>
-        <a href="/auth/forgot" class="text-right text-primary underline">Forgot Password</a>
-      </div>
-      <Form.Button variant="glass-primary" class="my-2 w-full">Sign in</Form.Button>
-
-      <!-- or line -->
-      <div class="my-2 flex items-center justify-center">
-        <div class="h-px w-20 bg-muted/50"></div>
-        <span class="mx-3 text-center text-lg font-normal tracking-widest text-muted/50"
-          >or continue with</span
-        >
-        <div class="h-px w-20 bg-muted/50"></div>
-      </div>
-
-      <!-- <span class="mb-4 text-center text-lg font-normal tracking-widest text-muted/50"
-        >continue with</span
-      > -->
-
-      <!-- oauth buttons -->
-      <div class="flex flex-row gap-2">
-        <Form.Button variant="google" size="lg">
-          <Icon icon="cib:google" class="mr-2" />
-          Google
-        </Form.Button>
-        <Form.Button variant="discord" size="lg">
-          <Icon icon="cib:discord" class="mr-2" />
-          Discord
-        </Form.Button>
-        <Form.Button variant="patreon" size="lg">
-          <Icon icon="cib:patreon" class="mr-2" />
-          Patreon
-        </Form.Button>
-      </div>
-    </form>
+    <LoginForm data={data.form}></LoginForm>
   </Card.Content>
 </Card.Root>

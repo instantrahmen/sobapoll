@@ -24,7 +24,7 @@
       --border: 210 100% 20%;
       --input: 210 100% 20%;
       --ring: 200 90% 40%;
-      --radius: 1rem;
+      --radius: 0.8rem;
 
       --bg-average-default: color-mix(in oklab, hsl(var(--primary)), hsl(var(--secondary)));
 
@@ -105,7 +105,7 @@
 
 @layer components {
   .card {
-    @apply rounded-lg border-white/15 bg-glass text-card-foreground shadow-md backdrop-blur-lg;
+    @apply rounded-lg border-white/15 bg-glass text-card-foreground shadow-md ring-1 ring-purple-950/15 backdrop-blur-lg;
   }
 
   .glass {

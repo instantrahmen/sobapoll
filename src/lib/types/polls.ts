@@ -2,7 +2,7 @@ import type { ComponentType } from 'svelte';
 import * as Lucide from 'lucide-svelte';
 
 export type LucideKey = keyof typeof Lucide;
-export type ValidIcon = ComponentType | LucideKey;
+export type ValidIcon = ComponentType | LucideKey | string;
 
 export enum PollType {
   FPTP = 'fptp', // First Past the Post

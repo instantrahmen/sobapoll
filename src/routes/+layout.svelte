@@ -66,7 +66,7 @@
 <ModeWatcher />
 <Toaster />
 
-<div class="flex min-h-lvh flex-col">
+<div class="flex min-h-dvh flex-col transition-all ease-in">
   <PageHeader />
 
   <div class="flex-1">

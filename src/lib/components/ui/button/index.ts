@@ -1,6 +1,7 @@
 import { type VariantProps, tv } from 'tailwind-variants';
 import type { Button as ButtonPrimitive } from 'bits-ui';
 import Root from './button.svelte';
+import type { Snippet } from 'svelte';
 
 const glassBaseClasses =
   'glass card tracking-wider border border-1 bg-glass hover:bg-glass-lighter';
@@ -46,6 +47,7 @@ type Size = VariantProps<typeof buttonVariants>['size'];
 type Props = ButtonPrimitive.Props & {
   variant?: Variant;
   size?: Size;
+  children?: Snippet
 };
 
 type Events = ButtonPrimitive.Events;

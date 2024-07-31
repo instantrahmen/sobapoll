@@ -76,9 +76,14 @@ export type PollsRecord = {
 
 export type TestRecord = never
 
+export enum UsersRoleOptions {
+	"ADMIN" = "ADMIN",
+	"USER" = "USER",
+}
 export type UsersRecord = {
 	avatar?: string
 	name?: string
+	role: UsersRoleOptions
 }
 
 // Response types include system fields and match responses from the PocketBase API
