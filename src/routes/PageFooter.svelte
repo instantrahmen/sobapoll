@@ -14,14 +14,16 @@
 </script>
 
 <footer class="card rounded-none border-t px-4 py-2 md:m-2 md:rounded-lg md:border">
-  <div class="container flex items-center justify-between px-0">
+  <div class="container flex flex-wrap items-center justify-between px-0">
     <div class="flex items-center gap-2">
       <SoupIcon class="h-6 w-6" />
       <p>
         © 2023 <a
           href="https://cudd.io"
-          class="font-bold text-blue-800 hover:underline dark:text-blue-400">Erika Cudd</a
+          class="font-bold text-blue-800 hover:underline dark:text-blue-400"
         >
+          Erika Cudd
+        </a>
       </p>
     </div>
 
@@ -35,10 +37,10 @@
       Reset
     </Button> -->
 
-    <nav class="flex items-center gap-4">
-      <a class="hover:underline" href="/"> Privacy </a>
-      <a class="hover:underline" href="/"> Terms </a>
-      <a class="hover:underline" href="/"> Contact </a>
+    <nav class="flex flex-wrap items-center gap-4">
+      <a class="hover:underline" href="/">Privacy</a>
+      <a class="hover:underline" href="/">Terms</a>
+      <a class="hover:underline" href="/">Contact</a>
 
       <Link variant="ghost" size="icon" iconOnly icon="fa6-brands:github-alt" class="text-3xl" />
       <Link on:click={toggleMode} variant="ghost" size="icon" iconOnly icon={icons[mode]}>

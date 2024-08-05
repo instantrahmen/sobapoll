@@ -47,8 +47,7 @@
     {
       name: 'terms',
       type: 'checkbox',
-      label:
-        'I agree to the <a class="text-primary underline" href="/terms">terms and conditions</a>',
+      label: 'I agree to the <a class="link" href="/terms">terms and conditions</a>',
     },
   ];
 </script>
@@ -79,16 +78,16 @@
       <div class="h-px w-20 bg-muted/50"></div>
     </div>
 
-    <div class="flex flex-row gap-2">
-      <Form.Button variant="google" size="lg" class="">
+    <div class="flex w-full flex-row gap-2">
+      <Form.Button variant="google" size="lg" class="w-full">
         <Icon icon="cib:google" class="mr-2 " />
         Google
       </Form.Button>
-      <Form.Button variant="discord" size="lg">
+      <Form.Button variant="discord" size="lg" class="w-full">
         <Icon icon="cib:discord" class="mr-2" />
         Discord
       </Form.Button>
-      <Form.Button variant="patreon" size="lg">
+      <Form.Button variant="patreon" size="lg" class="w-full">
         <Icon icon="cib:patreon" class="mr-2" />
         Patreon
       </Form.Button>

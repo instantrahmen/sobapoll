@@ -1,7 +1,8 @@
 <script lang="ts">
   import '../app.pcss';
-  import { SoupIcon } from 'lucide-svelte';
+  import { SoupIcon, PlusIcon, BellPlus } from 'lucide-svelte';
   import { ModeWatcher, mode } from 'mode-watcher';
+  import { SideMenu } from '@leveluptuts/svelte-side-menu';
   import { backgroundStore } from '$lib/state/background.svelte';
   import { afterNavigate, beforeNavigate } from '$app/navigation';
   import { getAverageImageColor } from '$lib/utils';
@@ -10,10 +11,16 @@
   import { Button } from '$lib/components/ui/button';
   import chroma from 'chroma-js';
   import Toaster from '$lib/components/toast/Toaster.svelte';
+  import Link from '$lib/components/Header/HeaderLink.svelte';
   import PageHeader from './PageHeader.svelte';
   import PageFooter from './PageFooter.svelte';
+  import { getToastState, setToastState } from '$lib/state/toast.svelte';
+  import { UsersRoleOptions } from '$lib/types/gen/pocketbase-types';
 
-  const { children } = $props();
+  setToastState();
+  const toastState = getToastState();
+
+  const { children, data } = $props();
 
   let bgState = backgroundStore();
 
@@ -65,6 +72,82 @@
 <!-- Handlesd switching between light and dark mode -->
 <ModeWatcher />
 <Toaster />
+
+{#if data.user && data.user.role === UsersRoleOptions.ADMIN}
+  <SideMenu
+    right
+    top="5rem"
+    theme="dark"
+    nub="🩷"
+    links={[
+      {
+        text: 'Side Menu',
+      },
+      {
+        text: 'Login',
+        path: '/auth/login',
+      },
+      {
+        text: 'Register',
+        path: '/auth/register',
+      },
+      {
+        text: 'My::Dashboard',
+        path: '/my/dashboard',
+      },
+      {
+        text: 'My::Polls',
+        path: '/my/polls',
+      },
+      {
+        text: 'My::Profile',
+        path: '/my/profile',
+      },
+      {
+        text: 'My::Settings',
+        path: '/my/settings',
+      },
+      {
+        text: 'Admin::Users',
+        path: '/admin/users',
+      },
+      {
+        text: 'Example Poll',
+        path: '/polls/example',
+      },
+    ]}
+  >
+    <pre class="overflow-scroll bg-slate-800 font-mono text-sm text-slate-100">
+{JSON.stringify(data, null, 2)}
+  </pre>
+  </SideMenu>
+{/if}
+
+<!-- FAB bar -->
+<div class="fixed bottom-20 right-5 z-50 flex flex-row justify-end gap-4">
+  <!-- FAB button -->
+  <Link
+    variant="glass-neutral"
+    size="icon"
+    iconOnly
+    icon={PlusIcon}
+    class="rounded-full text-3xl"
+  />
+  <Link
+    variant="glass-neutral"
+    size="icon"
+    iconOnly
+    icon={BellPlus}
+    onClick={() => {
+      toastState.add({
+        title: 'Test Toast',
+        message: 'This is a test toast.',
+        type: 'success',
+      });
+    }}
+    class="rounded-full text-3xl"
+  />
+</div>
 
 <div class="flex min-h-dvh flex-col transition-all ease-in">
   <PageHeader />

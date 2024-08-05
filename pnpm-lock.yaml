@@ -11,6 +11,9 @@ importers:
       '@internationalized/date':
         specifier: ^3.5.5
         version: 3.5.5
+      '@leveluptuts/svelte-side-menu':
+        specifier: ^1.1.0
+        version: 1.1.0(svelte@5.0.0-next.134)
       bits-ui:
         specifier: ^0.21.12
         version: 0.21.12(svelte@5.0.0-next.134)
@@ -35,6 +38,9 @@ importers:
       get-average-color:
         specifier: ^0.0.6
         version: 0.0.6
+      language-literals:
+        specifier: ^0.0.2
+        version: 0.0.2
       lucide-svelte:
         specifier: ^0.417.0
         version: 0.417.0(svelte@5.0.0-next.134)
@@ -1146,6 +1152,11 @@ packages:
   '@jsdevtools/ez-spawn@3.0.4':
     resolution: {integrity: sha512-f5DRIOZf7wxogefH03RjMPMdBF7ADTWUMoOs9kaJo06EfwF+aFhMZMDZxHg/Xe12hptN9xoZjGso2fdjapBRIA==}
     engines: {node: '>=10'}
+
+  '@leveluptuts/svelte-side-menu@1.1.0':
+    resolution: {integrity: sha512-j5O6GDKZ/Cvftn1SD0wpwV9ATwq35GiD79QQ53gTmFtJewp9yTBWYzgpIukfXyoXVSeeGwbdAgw1Cwli+II6+w==}
+    peerDependencies:
+      svelte: ^4.0.0
 
   '@melt-ui/svelte@0.76.2':
     resolution: {integrity: sha512-7SbOa11tXUS95T3fReL+dwDs5FyJtCEqrqG3inRziDws346SYLsxOQ6HmX+4BkIsQh1R8U3XNa+EMmdMt38lMA==}
@@ -2617,6 +2628,9 @@ packages:
 
   kolorist@1.8.0:
     resolution: {integrity: sha512-Y+60/zizpJ3HRH8DCss+q95yr6145JXZo46OTpFvDZWLfRCE4qChOyk1b26nMaNpfHHgxagk9dXT5OP0Tfe+dQ==}
+
+  language-literals@0.0.2:
+    resolution: {integrity: sha512-XUjb1/gBpTPVaGB5OMa6sM0kz+tns3R4S4xfQMg+DRgTMbn6iYYjGGn+K1b+UhOzsCDo+1hQnI7CVPhu5qiosg==}
 
   leven@3.1.0:
     resolution: {integrity: sha512-qsda+H8jTaUaN/x5vzW2rzc+8Rw4TAQ/4KjB46IwK5VH+IlVeeeje/EoZRpiXvIqjFgK84QffqPztGI3VBLG1A==}
@@ -5121,6 +5135,10 @@ snapshots:
       string-argv: 0.3.2
       type-detect: 4.1.0
 
+  '@leveluptuts/svelte-side-menu@1.1.0(svelte@5.0.0-next.134)':
+    dependencies:
+      svelte: 5.0.0-next.134
+
   '@melt-ui/svelte@0.76.2(svelte@5.0.0-next.134)':
     dependencies:
       '@floating-ui/core': 1.6.4
@@ -6750,6 +6768,8 @@ snapshots:
   known-css-properties@0.34.0: {}
 
   kolorist@1.8.0: {}
+
+  language-literals@0.0.2: {}
 
   leven@3.1.0: {}
 

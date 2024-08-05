@@ -12,9 +12,10 @@
 
   type Props = {
     children: Snippet<[childProps: typeof childComponents]>;
+    class: string;
   };
 
-  const { children }: Props = $props();
+  const { children, class: className }: Props = $props();
 </script>
 
 <header
@@ -22,7 +23,8 @@
     'card',
     'sticky top-0 z-20 flex items-center justify-between rounded-none',
     'mb-2 border-b p-2 px-4 transition-colors duration-100 ease-in',
-    'md:top-2 md:mx-2 md:rounded-md md:border'
+    'md:top-2 md:mx-2 md:rounded-md md:border',
+    className
   )}
 >
   <a class="flex items-center gap-2" href="/">

@@ -34,6 +34,6 @@ export const actions = {
       console.error(error);
     }
 
-    throw redirect(303, '/auth/login');
+    throw redirect(303, '/auth/after-register');
   },
 };

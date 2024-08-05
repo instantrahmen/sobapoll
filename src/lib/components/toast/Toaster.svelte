@@ -26,7 +26,7 @@
 </div>
 
 <!-- Test button -->
-<div class="absolute bottom-10 right-2">
+<!-- <div class="absolute bottom-10 right-2">
   <button
     on:click={() => {
       toastState.add(testToast);
@@ -34,7 +34,7 @@
   >
     Add Toast
   </button>
-</div>
+</div> -->
 
 <style lang="postcss">
 </style>

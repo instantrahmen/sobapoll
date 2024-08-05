@@ -57,12 +57,12 @@
   });
 </script>
 
-<Card.Root class="m-4 mx-auto max-w-lg">
+<Card.Root class="m-4 mx-auto w-full max-w-screen-sm">
   <Card.Header class="text-center text-2xl font-semibold">
     <Card.Title class="text-center text-2xl font-semibold">Register for an account</Card.Title>
     <Card.Description class="text-center font-normal text-muted">
       Already have an account?
-      <a class="text-primary underline" href="/auth/login">Sign in</a>
+      <a class="link" href="/auth/login">Sign in</a>
     </Card.Description>
   </Card.Header>
   <Card.Content class="">

@@ -15,7 +15,8 @@ const buttonVariants = tv({
       outline:
         'border border-input bg-background hover:bg-accent hover:text-accent-foreground tracking-wider',
       secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80 tracking-wider',
-      ghost: 'hover:bg-accent hover:text-accent-foreground tracking-wider',
+      ghost:
+        'dark:hover:bg-glass-darker hover:bg-glass-white/30  hover:text-accent-foreground tracking-wider',
       link: 'text-inherit p-0 underline-offset-4 hover:underline',
       glass: `${glassBaseClasses}`,
       'glass-primary': `${glassBaseClasses} bg-primary/40 hover:bg-primary/50`,
@@ -47,7 +48,7 @@ type Size = VariantProps<typeof buttonVariants>['size'];
 type Props = ButtonPrimitive.Props & {
   variant?: Variant;
   size?: Size;
-  children?: Snippet
+  children?: Snippet;
 };
 
 type Events = ButtonPrimitive.Events;

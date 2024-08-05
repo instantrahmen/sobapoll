@@ -148,7 +148,9 @@
 <section class="flex min-h-[calc(100lvh-200px)] flex-col items-center justify-center">
   <div class="container grid items-center gap-8 px-4 text-left md:grid-cols-1 md:px-6">
     <div class=" flex flex-col space-y-4 rounded-xl p-8 text-center">
-      <h2 class="md:text-8px w-full text-6xl font-normal tracking-wide">Welcome to SobaPoll</h2>
+      <h2 class="md:text-8px w-full text-6xl font-normal tracking-wide">
+        Get started with SobaPoll
+      </h2>
       <div class=" mx-auto w-full max-w-md py-8 text-xl">
         Discover and participate in polls on a variety of polls, or create your own. Choose between
         multiple voting methods, visibility options, and more.

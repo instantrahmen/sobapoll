@@ -1,15 +1,11 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import { SoupIcon } from 'lucide-svelte';
-  import { cn } from '$lib/utils/shadcn';
-  import { cssVariable } from '$lib/actions/body-class';
   import { mode } from 'mode-watcher';
   import PollFPTP from '$lib/components/poll-types/PollFPTP.svelte';
-  import PollRanked from '$lib/components/poll-types/PollRanked.svelte';
-  import { type Poll, PollType } from '$lib/types/polls';
   import { backgroundStore } from '$lib/state/background.svelte';
   import { afterNavigate } from '$app/navigation';
-
+  import { PollType, type Poll } from '$lib/types/polls';
   let { pollId } = $page.params;
 
   let examplePoll: Poll<PollType.FPTP> = $state({
