@@ -92,18 +92,18 @@
     selected: [],
   });
 
-  let bgImage = $derived(cssVariable('--page-background'));
+  // let bgImage = $derived(cssVariable('--page-background'));
 
   const bg = backgroundStore();
 
   $effect(() => {
     // set background
-    console.log('set background', $mode, examplePoll.imageDark, examplePoll.image);
-    if ($mode === 'dark') {
-      bg.state.value = `url(${examplePoll.imageDark})`;
-    } else {
-      bg.state.value = `url(${examplePoll.image})`;
-    }
+    // console.log('set background', $mode, examplePoll.imageDark, examplePoll.image);
+    // if ($mode === 'dark') {
+    //   bg.state.value = `url(${examplePoll.imageDark})`;
+    // } else {
+    //   bg.state.value = `url(${examplePoll.image})`;
+    // }
   });
 
   afterNavigate(() => {
@@ -115,9 +115,9 @@
   <title>{examplePoll.title} - SobaPoll</title>
 </svelte:head>
 
-<svelte:body
+<!-- <svelte:body
   use:bgImage={$mode === 'dark' ? `url(${examplePoll.imageDark})` : `url(${examplePoll.image})`}
-/>
+/> -->
 
 <div class="mx-auto w-full max-w-2xl">
   <PollFPTP poll={examplePoll} class="flex flex-col" />

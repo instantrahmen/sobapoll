@@ -124,8 +124,7 @@
 {/if}
 
 <!-- FAB bar -->
-<div class="fixed bottom-20 right-5 z-50 flex flex-row justify-end gap-4">
-  <!-- FAB button -->
+<!-- <div class="fixed bottom-20 right-5 z-50 flex flex-row justify-end gap-4">
   <Link
     variant="glass-neutral"
     size="icon"
@@ -147,7 +146,7 @@
     }}
     class="rounded-full text-3xl"
   />
-</div>
+</div> -->
 
 <div class="flex min-h-dvh flex-col transition-all ease-in">
   <PageHeader />

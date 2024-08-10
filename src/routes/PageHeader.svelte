@@ -18,6 +18,8 @@
   import { Button } from '$lib/components/ui/button';
   import type { AuthModel } from 'pocketbase';
   import { UsersRoleOptions } from '$lib/types/gen/pocketbase-types';
+  import Rocket from 'svelte-radix/Rocket.svelte';
+  import * as Alert from '$lib/components/ui/alert/index.js';
 
   let user: AuthModel | undefined = $derived($page.data.user);
 
@@ -111,16 +113,28 @@
         </Dropdown.Content>
       </Dropdown.Root>
     {:else}
-      <Link variant="glass-secondary" class="hover:shadow-lg" icon={LogIn} href="/auth/login">
-        Login
+      <Link variant="glass-secondary" class="hover:shadow-lg" href="/polls/preview">
+        Preview Poll
       </Link>
-      <Link variant="glass-primary" class="hover:shadow-lg" icon={UserPlus} href="/auth/register">
+      <Link
+        variant="glass-primary"
+        class="hidden hover:shadow-lg sm:flex"
+        icon={UserPlus}
+        href="/auth/register"
+      >
         Register
       </Link>
     {/if}
   {/snippet}
 </Header>
 
-<!-- <pre>
-  {JSON.stringify($page.data.user, null, 2)}
-</pre> -->
+<div class="py-2 md:px-2">
+  <Alert.Root class="glass box-border  border bg-glass shadow-md">
+    <Rocket class="h-4 w-4" />
+    <Alert.Title class="font-bold tracking-wider">Note</Alert.Title>
+    <Alert.Description>
+      This site is still under active development and most features are not yet implemented. You may
+      see an example poll by clicking the "Preview Poll" button above.
+    </Alert.Description>
+  </Alert.Root>
+</div>

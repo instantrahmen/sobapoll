@@ -62,6 +62,12 @@ importers:
       svelte-portal:
         specifier: ^2.2.1
         version: 2.2.1
+      svelte-radix:
+        specifier: ^1.1.0
+        version: 1.1.0(svelte@5.0.0-next.134)
+      svelte-sonner:
+        specifier: ^0.3.27
+        version: 0.3.27(svelte@5.0.0-next.134)
       sveltekit-superforms:
         specifier: ^2.16.1
         version: 2.16.1(@sveltejs/kit@2.5.18(@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.134)(vite@5.3.5(terser@5.31.3)))(svelte@5.0.0-next.134)(vite@5.3.5(terser@5.31.3)))(svelte@5.0.0-next.134)
@@ -3589,6 +3595,16 @@ packages:
         optional: true
       typescript:
         optional: true
+
+  svelte-radix@1.1.0:
+    resolution: {integrity: sha512-kyE9wZiJV937INGb+wiBkAjmGtQUUYRPkVL2Q+/gj+9Vog1Ewd2wNvNmpNMUd+c+euxoc5u5YZMuCUgky9EUPw==}
+    peerDependencies:
+      svelte: ^3.54.0 || ^4.0.0 || ^5.0.0
+
+  svelte-sonner@0.3.27:
+    resolution: {integrity: sha512-+PvbuePNTyTNCepCWqKcFeu+Lo27yYuwfSc7zJvrWjCRMJrWAmccPg3j7jO1W13QoN3TySXU5Trb956VBQiM5Q==}
+    peerDependencies:
+      svelte: ^3.0.0 || ^4.0.0 || ^5.0.0-next.1
 
   svelte@5.0.0-next.134:
     resolution: {integrity: sha512-MgIQnY0q9rdB0NPnFgi9dJHmsINy3ar74rYcEfS3wHHNJbTtnc0AQ4HKWQEb4c2J0oNDnw8oppvz8WKSS+7P1Q==}
@@ -7698,6 +7714,14 @@ snapshots:
       postcss: 8.4.40
       postcss-load-config: 4.0.2(postcss@8.4.40)
       typescript: 5.5.4
+
+  svelte-radix@1.1.0(svelte@5.0.0-next.134):
+    dependencies:
+      svelte: 5.0.0-next.134
+
+  svelte-sonner@0.3.27(svelte@5.0.0-next.134):
+    dependencies:
+      svelte: 5.0.0-next.134
 
   svelte@5.0.0-next.134:
     dependencies:

@@ -1,5 +1,6 @@
 <script lang="ts">
   import Link from '$lib/components/Header/HeaderLink.svelte';
+  import { Button } from '$lib/components/ui/button';
   import Icon from '@iconify/svelte';
   import { Sun, Moon, SunMoon, SoupIcon, Github } from 'lucide-svelte';
   import { mode as modeStore, toggleMode } from 'mode-watcher';
@@ -19,7 +20,7 @@
       <SoupIcon class="h-6 w-6" />
       <p>
         © 2023 <a
-          href="https://cudd.io"
+          href="https://erika.cafe"
           class="font-bold text-blue-800 hover:underline dark:text-blue-400"
         >
           Erika Cudd
@@ -27,25 +28,25 @@
       </p>
     </div>
 
-    <!-- <input
-      type="color"
-      name="theme-color"
-      id="theme-color"
-      bind:value={theme.state.customColor}
-    />
-    <Button on:click={() => (theme.state.customColor = null)} variant="ghost" size="icon">
-      Reset
-    </Button> -->
-
     <nav class="flex flex-wrap items-center gap-4">
-      <a class="hover:underline" href="/">Privacy</a>
-      <a class="hover:underline" href="/">Terms</a>
-      <a class="hover:underline" href="/">Contact</a>
+      <!-- <a class="hover:underline" href="/">Privacy</a>
+      <a class="hover:underline" href="/">Terms</a> -->
+      <!-- <a class="hover:underline" href="/">Contact</a> -->
 
       <Link variant="ghost" size="icon" iconOnly icon="fa6-brands:github-alt" class="text-3xl" />
-      <Link on:click={toggleMode} variant="ghost" size="icon" iconOnly icon={icons[mode]}>
+
+      <Button on:click={toggleMode} variant="ghost" size="icon">
+        <Sun
+          class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+        />
+        <Moon
+          class="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
+        />
+        <span class="sr-only">Toggle theme</span>
+      </Button>
+      <!-- <Link on:click={toggleMode} variant="ghost" size="icon" iconOnly icon={icons[mode]}>
         Toggle theme to {mode === 'light' ? 'dark' : 'light'}
-      </Link>
+      </Link> -->
     </nav>
   </div>
 </footer>
